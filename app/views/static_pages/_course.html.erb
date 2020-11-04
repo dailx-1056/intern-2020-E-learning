@@ -1,0 +1,9 @@
+<div class="carousel-item <%= 'active' if course_counter == 0 %>">
+  <%= image_tag(Settings.carosel_image, class: "d-block w-100 carosel-image") %>
+  <div class="carousel-caption d-none d-md-block">
+    <%= link_to course do %>
+      <h5><%= course.name %></h5>
+    <% end %>
+    <p><%= course.description %></p>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">
+        <%= course_lecture_counter + 1 %>.
+        <%= link_to course_lecture.name,
+           course_lecture_path(number: course_lecture.number,
+                               id: course_lecture.id,
+                               course_id: course_lecture.course_id) %>
+      </h5>
+      <small><%= course_lecture.updated_at %></small>
+    </div>
+</div>

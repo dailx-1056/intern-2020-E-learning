@@ -1,0 +1,9 @@
+<%= provide :title, t("course.lecture.list_lecture") %>
+
+<div>
+  <h2><%= t "course.lecture.list_lecture" %></h2>
+  <div class="list-lecture list-group">
+    <%= render @course_lectures %>
+    <p><%= simple_format "No lecture found" if @course_lectures.blank? %></p>
+  </div>
+</div>

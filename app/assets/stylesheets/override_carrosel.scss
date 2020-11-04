@@ -1,0 +1,11 @@
+@import './colors';
+
+.carousel-control-next, .carousel-control-prev {
+  z-index: 0 !important;
+}
+
+.carousel-caption {
+  h5, p {
+    color: $gray-900;
+  }
+}

@@ -22,4 +22,5 @@ class Course < ApplicationRecord
                                 allow_destroy: true
 
   scope :order_by_created_at, ->{order created_at: :desc}
+  scope :get_active_course, ->{where status: Course.statuses[:active]}
 end

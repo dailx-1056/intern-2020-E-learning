@@ -6,4 +6,7 @@ name:
   max_length: 50
   min_length: 2
 language_image: "https://res.cloudinary.com/tdh/image/upload/v1595343877/images/language_uyra3n.png"
+logo_image: "logo2.png"
+carosel_image: "elearning-way-improve-employee-engagement.jpg"
 per: 5
+user_course_per: 10

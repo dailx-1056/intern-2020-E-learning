@@ -23,6 +23,9 @@ vi:
     profile: "Thông tin"
     settings: "Cài đặt"
     lecture: "Bài học"
+    list_lecture: "Các bài học"
+    enroll_course: "Tham gia"
+    start: "Bắt đầu"
   user:
     comments: "Bình luận"
     comments_welcome: "Học viên cũ nói gì về khóa học của họ"
@@ -38,14 +41,18 @@ vi:
     estimate_time: "Thời gian"
     new: "Tạo khóa học"
     edit: "Sửa khóa học"
+    picture_alt: "Ảnh khóa học"
     lecture:
       add: "Thêm bài học"
+      list_lecture: "Danh sách bài học"
   footer:
     right: "E-learing 2020. All Rights Reserved."
   button:
     create_account: "Tạo tài khoản"
     add: "Thêm"
     save: "Lưu"
+    next: "Tiếp theo"
+    previous: "Quay lại"
   message:
     sign_up_now: "Bạn chưa có tài khoản? Đăng kí ngay !"
     confirm_delete: "Bạn có chắc muốn xóa bản ghi?"
@@ -65,6 +72,7 @@ vi:
       destroy_success: "Xóa khóa học thành công"
       destroy_fail: "Không thể xóa khóa học"
       not_found: "Không tìm thấy khóa học"
+      welcome_back: "Chào mừng bạn trở lại!"
     lecture:
       create_success: "Tạo bài học thành công"
       create_fail: "Không thể tạo bài học"

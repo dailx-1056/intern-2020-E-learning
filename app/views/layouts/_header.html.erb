@@ -1,6 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light ftco_navbar bg-light ftco-navbar-dark shadow" id="fixed-nav">
   <div class="container">
-    <span><%= link_to t("common.title"), root_path, {class: "nav-link"} %></span>
+    <span>
+      <%= link_to root_path, {class: "nav-link"} do %>
+        <%= image_tag(Settings.logo_image, class: "logo") %>
+      <% end %>
+    </span>
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
         <% if logged_in? %>
@@ -32,7 +36,7 @@
               <%= image_tag "flag_vn.png", class: "locale-logo" if locale == :vi %>
             </span>
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu " aria-labelledby="navbarDropdown">
             <%= link_to class: "dropdown-item", locale: :en do %>
               <div>
                 <%= image_tag "flag_uk.png", class: "locale-logo" %>
