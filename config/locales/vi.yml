@@ -24,6 +24,14 @@ vi:
     settings: "Cài đặt"
     lecture: "Bài học"
     choose_status: "Chọn trạng thái"
+    list_lecture: "Các bài học"
+    enroll_course: "Tham gia"
+    start: "Bắt đầu"
+    updated_on: "Cập nhật vào"
+    lecture_not_found: "Không có bài học nào"
+    previous: "Trước"
+    next: "Sau"
+    not_lecture_found: "Không tìm thấy bản ghi"
   user:
     comments: "Bình luận"
     comments_welcome: "Học viên cũ nói gì về khóa học của họ"
@@ -39,8 +47,10 @@ vi:
     estimate_time: "Thời gian"
     new: "Tạo khóa học"
     edit: "Sửa khóa học"
+    picture_alt: "Ảnh khóa học"
     lecture:
       add: "Thêm bài học"
+      list_lecture: "Danh sách bài học"
   footer:
     right: "E-learing 2020. All Rights Reserved."
   button:
@@ -54,6 +64,7 @@ vi:
     reset: "Reset"
     search: "Tìm kiếm"
     reset: "Đặt lại"
+    more_course: "Xem nhiếu khóa hơn"
   message:
     sign_up_now: "Bạn chưa có tài khoản? Đăng kí ngay !"
     confirm_delete: "Bạn có chắc muốn xóa bản ghi?"
@@ -73,6 +84,7 @@ vi:
       destroy_success: "Xóa khóa học thành công"
       destroy_fail: "Không thể xóa khóa học"
       not_found: "Không tìm thấy khóa học"
+      welcome_back: "Chào mừng bạn trở lại!"
     lecture:
       create_success: "Tạo bài học thành công"
       create_fail: "Không thể tạo bài học"
@@ -105,3 +117,4 @@ vi:
     end_birthday_date: "Ngày sinh nhật tới"
     email: "Email"
     description: "Mô tả"
+  category: "Category sample"

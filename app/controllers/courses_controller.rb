@@ -1,6 +1,8 @@
 class CoursesController < ApplicationController
+  include SessionsHelper
+
   before_action :get_courses, only: :index
-  before_action :get_course, only: %i(edit update)
+  before_action :get_course, only: %i(edit update show)
   before_action :store_previous_page, only: %i(new edit)
 
   def index
@@ -39,6 +41,13 @@ class CoursesController < ApplicationController
     @users = @course.users
                     .joins(:user_detail)
                     .page(params[:page]).per Settings.per
+  end
+
+  def show
+    return unless current_user&.user_courses&.enrolled(params[:id])
+
+    flash[:success] = t "message.course.welcome_back"
+    redirect_to course_lectures_path(course_id: params[:id])
   end
 
   private

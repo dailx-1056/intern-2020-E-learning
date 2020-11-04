@@ -11,10 +11,6 @@ require('jquery')
 require('jquery-ui')
 require('@nathanvda/cocoon')
 
-toastr.options = {
-  "positionClass": "toast-bottom-right"
-};
-
 global.toastr = toastr;
 
 require.context('file-loader?name=[path][name].[ext]&context=node_modules/jquery-ui-dist!jquery-ui-dist', true,    /jquery-ui\.css/ );

@@ -25,6 +25,14 @@ en:
     settings: "Setting"
     lecture: "Lecture"
     choose_status: "Choose status"
+    list_lecture: "Lectures"
+    enroll_course: "Enroll Course"
+    start: "Start"
+    updated_on: "Updated on"
+    lecture_not_found: "No lecture found"
+    previous: "Previous"
+    next: "Next"
+    not_lecture_found: "No lecture found"
   user:
     comments: "Comment"
     comments_welcome: "What did student say about their courses"
@@ -36,6 +44,10 @@ en:
     add: "Add Course"
     new: "New course"
     edit: "Edit course"
+    picture_alt: "Course's avatar"
+    lecture:
+      add: "Add Lecture"
+      list_lecture: "List lectures"
   footer:
     right: "E-learing 2020. All Rights Reserved."
   button:
@@ -47,6 +59,7 @@ en:
     more_courses: "More courses"
     search: "Search"
     reset: "Reset"
+    more_course: "More courses"
   message:
     sign_up_now: "Do you have an account? Sign up now !"
     confirm_delete: "Are you sure you want to delete the item?"
@@ -66,6 +79,7 @@ en:
       destroy_success: "Destroy course successfully"
       destroy_fail: "Can't destroy course"
       not_found: "Can't find course"
+      welcome_back: "Welcome back!"
       lecture:
         add: "Add lecture"
     lecture:
@@ -76,6 +90,12 @@ en:
       destroy_success: "Destroy lecture successfully"
       destroy_fail: "Can't destroy lecture"
       not_found: "Can't find lecture"
+      create_user_details_fail: "Can't create user_detail"
+      update_user_details_fail: "Can't update user_detail"
+      list_lecture: "List lecture"
+    enroll:
+      success: "Enroll successfully"
+      failed: "Enroll failed"
   field:
     number: "Number"
     video_link: "Video link"
@@ -98,3 +118,4 @@ en:
     name: "Name"
     email: "Email"
     description: "Description"
+  category: "Category sample"

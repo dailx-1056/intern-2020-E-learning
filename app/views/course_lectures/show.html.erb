@@ -1,0 +1,36 @@
+<%= provide :title, @course_lecture.name %>
+
+<div class="container">
+  <h2><%= @course_lecture.name %></h2>
+  <div class="row">
+    <div class="col-md-3 categories lecture_categories">
+      <div class="list-categories">
+        <ul class="list-group">
+          <%= render @course_lectures %>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-9 categories">
+      <div class="iframe-container">
+        <iframe class="embed-responsive-item" src="<%= @course_lecture.video_link %>" frameborder="0" allowfullscreen>
+        </iframe>
+      </div>
+      <div class="navigate-button">
+        <div class="inline-item right">
+          <%= link_to t("button.next"),
+                      course_lecture_path(number: @course_lecture.number,
+                                          course_id: params[:course_id],
+                                          method: "next"),
+                      {class: "btn btn-primary"} %>
+        </div>
+        <div class="inline-item left">
+          <%= link_to t("button.previous"),
+                      course_lecture_path(number: @course_lecture.number,
+                                          course_id: params[:course_id],
+                                          method: "previous"),
+                      {class: "btn btn-primary"} %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

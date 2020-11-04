@@ -1,0 +1,19 @@
+<div class="background-color">
+  <div class="container">
+    <div>
+      <div class="inline-item">
+        <%= image_tag "index", class: "image" %>
+      </div>
+
+      <div class="inline-item">
+        <h2><%= @course.name %></h2>
+        <%= button_to user_courses_path(course_id: @course.id),
+          method: :post,
+          class: "btn btn-primary" do %>
+          <%= t "common.enroll_course" %><br>
+          <%= t "common.start" %> <%= Date.today %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

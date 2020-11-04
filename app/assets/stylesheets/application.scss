@@ -1,6 +1,5 @@
 /*
  *= require_self
- *= require_tree .
  */
 
 $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
@@ -10,5 +9,14 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import '@fortawesome/fontawesome-free/scss/brands';
 @import '@fortawesome/fontawesome-free/scss/v4-shims';
 @import 'bootstrap/scss/bootstrap';
-
 @import 'toastr/toastr';
+
+@import 'colors';
+@import 'courses';
+@import 'custom';
+@import 'footer';
+@import 'global';
+@import 'icons';
+@import 'override_carrosel';
+@import 'override_paginate';
+@import 'iframe';

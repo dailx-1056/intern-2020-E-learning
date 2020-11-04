@@ -1,0 +1,13 @@
+<li class="list-group-item">
+  <div class="container">
+    <div class="d-flex w-100 justify-content-between">
+        <p class="mb-1">
+          <%= course_lecture_counter + 1 %>.
+          <%= link_to course_lecture.name,
+            course_lecture_path(number: course_lecture.number,
+                                id: course_lecture.id,
+                                course_id: course_lecture.course_id) %>
+        </p>
+      </div>
+  </div>
+</li>

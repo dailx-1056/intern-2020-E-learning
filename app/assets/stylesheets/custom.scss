@@ -1,4 +1,6 @@
-@import './colors.scss';
+.content {
+  padding: 5em 2em;
+}
 
 .center {
   margin: 0 auto;
@@ -43,4 +45,66 @@ tbody {
   .btn {
     margin-top: 10px;
   }
+}
+
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.categories {
+  margin-top: 15px;
+}
+
+.logo {
+  width: 60px;
+  height: 30px;
+  margin: 0;
+}
+
+.shadow {
+  border: white 1px solid;
+  padding: 1px;
+  box-shadow: 5px 10px #888888;
+}
+
+#fixed-nav {
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+}
+
+.comment-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
+
+.comment-card {
+  height: 200px;
+  border: 0;
+  background-color: inherit;
+}
+
+.carosel-image {
+  height: 400px;
+  width: 80%;
+}
+
+.right {
+  position: absolute;
+  right: 20px;
+}
+
+.left {
+  position: absolute;
+  left: 20px;
+}
+
+.navigate-button {
+  margin-top: 1em;
+}
+
+.lecture-categories {
+  height: 60% device-height;
 }
