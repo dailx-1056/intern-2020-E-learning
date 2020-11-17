@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :user_detail, allow_destroy: true
 
-  delegate :name, :birthday, :location, to: :user_detail
+  delegate :name, :birthday, :location, :status, to: :user_detail
 
   validates :email, presence: true,
     length: {maximum: Settings.email.max_length},
@@ -31,6 +31,30 @@ class User < ApplicationRecord
   has_secure_password
 
   before_save :downcase_email
+
+  scope :by_email, (lambda do |email|
+    where "LOWER(users.email) LIKE ?", "%#{email.downcase}%" if email.present?
+  end)
+  scope :by_name, (lambda do |name|
+    return if name.blank?
+
+    where "LOWER(user_details.name) LIKE ?", "%#{name.downcase}%"
+  end)
+  scope :by_location, (lambda do |location|
+    return if location.blank?
+
+    where "LOWER(users.location) LIKE ?", "%#{location.downcase}%"
+  end)
+  scope :by_role, (lambda do |role|
+    where role: role if role.present? && role[0].present?
+  end)
+  scope :by_birthday, (lambda do |start_date, end_date|
+    return if start_date.blank? && end_date.blank?
+
+    start_date = Settings.default_start_date if start_date.blank?
+    end_date = Time.zone.today.strftime Settings.date_format if end_date.blank?
+    where "user_details.birthday BETWEEN ? AND ?", start_date, end_date
+  end)
 
   private
 

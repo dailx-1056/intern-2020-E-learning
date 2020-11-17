@@ -38,6 +38,6 @@ class Course < ApplicationRecord
     where created_at: start_date..end_date
   end)
   scope :by_status, (lambda do |status|
-    where status: status if status.present?
+    where status: status if status.present? && status[0].present?
   end)
 end

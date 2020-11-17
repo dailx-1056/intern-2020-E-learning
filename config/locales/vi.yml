@@ -50,8 +50,8 @@ vi:
     next: "Tiếp theo"
     previous: "Quay lại"
     more_courses: "Học tiếp"
-    search: "Search"
-    reset: "Reset"
+    search: "Tìm kiếm"
+    reset: "Đặt lại"
   message:
     sign_up_now: "Bạn chưa có tài khoản? Đăng kí ngay !"
     confirm_delete: "Bạn có chắc muốn xóa bản ghi?"
@@ -96,4 +96,10 @@ vi:
     estimate_time: "Thời gian dự kiến"
   placeholder:
     name: "Tên"
+    start_birthday_date: "Ngày sinh nhật từ"
+    end_birthday_date: "Ngày sinh nhật tới"
+  placeholder:
+    location: "Vị trí"
+    name: "Tên"
+    email: "Email"
     description: "Mô tả"

@@ -1,0 +1,41 @@
+<%= form_tag users_path, method: :get, remote: true do %>
+  <div class="row">
+    <div class="col-3 form-group">
+      <%= label_tag :email, t("field.email") %>
+      <%= text_field_tag :email, params[:email], class: "form-control", placeholder: t("placeholder.email") %>
+    </div>
+    <div class="col-3 form-group">
+      <%= label_tag :name, t("field.name") %>
+      <%= text_field_tag :name, params[:name], class: "form-control", placeholder: t("placeholder.name") %>
+    </div>
+    <div class="col-3 form-group">
+      <%= label_tag :location, t("field.location") %>
+      <%= text_field_tag :location, params[:location], class: "form-control", placeholder: t("placeholder.location") %>
+    </div>
+    <div class="col-3 form-group">
+      <%= label_tag :start_date, t("field.start_birthday_date") %>
+      <%= date_field_tag :start_date, params[:start_date], class: "form-control" %>
+    </div>
+    <div class="col-3 form-group">
+      <%= label_tag :end_date, t("field.end_birthday_date") %>
+      <%= date_field_tag :end_date, params[:end_date], class: "form-control" %>
+    </div>
+    <div class="col-12">
+      <div class="col-3 form-group">
+        <%= label_tag :role, t("field.role") %>
+        <%= select :role,
+                   params[:role],
+                   User.roles.keys,
+                   include_blank: t("common.choose_role"),
+                   class: "form-control"
+        %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col justify-content-end">
+      <%= submit_tag t("button.search"), remote: true, class: "btn btn-success" %>
+      <%= link_to t("button.reset"), users_path, remote: true, class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

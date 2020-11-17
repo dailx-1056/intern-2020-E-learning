@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
+  before_action :get_users, only: :index
   before_action :get_user, only: %i(edit update)
 
   def index
-    @users = User.page(params[:page]).per Settings.per
+    @users = @users.page(params[:page]).per Settings.per
   end
 
   def new
@@ -47,5 +48,14 @@ class UsersController < ApplicationController
 
     flash.now[:danger] = t "message.user.not_found"
     redirect_to users_url
+  end
+
+  def get_users
+    @users = User.joins(:user_detail)
+                 .by_email(params[:email])
+                 .by_name(params[:name])
+                 .by_role(params[:role])
+                 .by_location(params[:location])
+                 .by_birthday(params[:start_date], params[:end_date])
   end
 end
