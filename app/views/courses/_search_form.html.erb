@@ -18,14 +18,10 @@
     </div>
     <div class="col-3 form-group">
       <%= label_tag :status, t("field.status") %>
-      <%= collection_select :status,
-                 params[:status],
-                 Course.statuses.keys,
-                 :to_s,
-                 :to_s,
-                 include_blank: t("common.choose_status"),
-                 class: "form-control"
-      %>
+      <%= select_tag :status,
+          options_from_collection_for_select(Course.statuses.keys, :to_s, :to_s, params[:status]),
+          include_blank: t("common.choose_role"),
+          class: "form-control" %>
     </div>
   </div>
   <div class="row">

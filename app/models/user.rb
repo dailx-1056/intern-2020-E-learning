@@ -46,7 +46,7 @@ class User < ApplicationRecord
     where "LOWER(users.location) LIKE ?", "%#{location.downcase}%"
   end)
   scope :by_role, (lambda do |role|
-    where role: role if role.present? && role[0].present?
+    where role: role if role.present?
   end)
   scope :by_birthday, (lambda do |start_date, end_date|
     return if start_date.blank? && end_date.blank?

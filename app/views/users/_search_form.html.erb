@@ -23,12 +23,10 @@
     <div class="col-12">
       <div class="col-3 form-group">
         <%= label_tag :role, t("field.role") %>
-        <%= select :role,
-                   params[:role],
-                   User.roles.keys,
-                   include_blank: t("common.choose_role"),
-                   class: "form-control"
-        %>
+        <%= select_tag :role,
+          options_from_collection_for_select(User.roles.keys, :to_s, :to_s, params[:role]),
+          include_blank: t("common.choose_role"),
+          class: "form-control" %>
       </div>
     </div>
   </div>

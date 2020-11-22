@@ -50,6 +50,8 @@ vi:
     next: "Tiếp theo"
     previous: "Quay lại"
     more_courses: "Học tiếp"
+    search: "Search"
+    reset: "Reset"
     search: "Tìm kiếm"
     reset: "Đặt lại"
   message:
@@ -94,12 +96,12 @@ vi:
     role: "Vai trò"
     description: "Mô tả"
     estimate_time: "Thời gian dự kiến"
-  placeholder:
-    name: "Tên"
     start_birthday_date: "Ngày sinh nhật từ"
     end_birthday_date: "Ngày sinh nhật tới"
   placeholder:
     location: "Vị trí"
     name: "Tên"
+    start_birthday_date: "Ngày sinh nhật từ"
+    end_birthday_date: "Ngày sinh nhật tới"
     email: "Email"
     description: "Mô tả"
