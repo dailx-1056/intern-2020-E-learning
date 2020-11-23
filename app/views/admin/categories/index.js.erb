@@ -1,0 +1,4 @@
+$('#categories').html("<%= j render @categories %>");
+$('#categories-paginate').html("<%= j paginate(@categories,
+                                               remote: true,
+                                               theme: "twitter-bootstrap-3") %>");

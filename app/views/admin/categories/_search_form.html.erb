@@ -1,0 +1,26 @@
+<%= form_tag admin_categories_path, method: :get, remote: true do %>
+  <div class="row">
+    <div class="col-6 form-group">
+      <%= label_tag :name, t("field.name") %>
+      <%= text_field_tag :name, params[:name],
+        class: "form-control",
+        placeholder: t("placeholder.name") %>
+    </div>
+    <div class="col-6 form-group">
+      <%= label_tag :description, t("field.description") %>
+      <%= text_field_tag :description,
+        params[:description],
+        class: "form-control",
+        placeholder: t("placeholder.description") %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col justify-content-end">
+      <%= submit_tag t("button.search"), class: "btn btn-success" %>
+      <%= link_to t("button.reset"),
+          admin_categories_path,
+          remote: true,
+          class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

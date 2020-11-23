@@ -1,0 +1,24 @@
+<%= form_for [:admin, @category] do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <div class="form-group">
+    <%= f.label :name do %>
+      <%= t "field.name" %><span class="red-asterisk"> *</span>
+    <% end %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description do %>
+      <%= t "field.description" %><span class="red-asterisk"> *</span>
+    <% end %>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+
+  <div class="right">
+    <%= f.submit yield(:button_text), class: "btn btn-primary btn-right" %>
+    <%= link_to t("common.cancel"),
+      admin_categories_path,
+      {class: "btn btn-light btn-right"} %>
+  </div>
+<% end %>

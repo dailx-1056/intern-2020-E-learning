@@ -1,0 +1,31 @@
+<% provide :title, t("common.categories") %>
+
+<div class="container">
+  <h2><%= t "common.categories" %></h2>
+  <div class="search-border">
+    <%= render "search_form" %>
+  </div>
+  <div>
+    <%= link_to t("categories.new"),
+      new_admin_category_path,
+      {class: "btn btn-primary"} %>
+  </div>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col-1"><%= t "user.no" %></th>
+          <th class="col-3"><%= t "field.name" %></th>
+          <th class="col-5"><%= t "field.description" %></th>
+          <th class="col-3"></th>
+        </tr>
+      </thead>
+      <tbody id="categories">
+        <%= render @categories %>
+      </tbody>
+    </table>
+    <div id="categories-paginate">
+      <%= paginate @categories, remote: true, theme: "twitter-bootstrap-3" %>
+    </div>
+  </div>
+</div>

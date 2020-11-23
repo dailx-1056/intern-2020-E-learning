@@ -1,0 +1,20 @@
+<tr>
+  <td class="col-1"><%= page_index params[:page], category_counter, Settings.per %></td>
+  <td class="col-3"><%= category.name %></td>
+  <td class="col-5"><%= category.description %></td>
+  <td class="col-3">
+    <div class="inline-item">
+      <%= link_to edit_admin_category_path(category), {class: "btn btn-primary"} do %>
+        <i class="fas fa-pen"></i>
+      <% end %>
+    </div>
+    <div class="inline-item">
+      <%= link_to admin_category_path(category.id),
+        method: :delete,
+        remote: true,
+        class: "btn btn-danger" do %>
+        <i class="fas fa-trash"></i>
+      <% end %>
+    </div>
+  </td>
+</tr>

@@ -1,8 +1,10 @@
 class Admin::CoursesController < Admin::BaseController
-  before_action :get_courses, :get_course_has_pending_user, :order_course, only: :index
+  before_action :get_courses,
+                :get_course_has_pending_user,
+                :order_course,
+                only: :index
   before_action :get_course, only: %i(edit update)
   before_action :store_previous_page, only: %i(new edit)
-  after_action :create_instructor, only: :create
 
   def index
     @courses = @courses.order_by_created_at

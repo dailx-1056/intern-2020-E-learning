@@ -1,18 +1,20 @@
 class CourseLecturesController < ApplicationController
   before_action :logged_in_user, only: :show
-  before_action :get_course, :correct_learning_user, :get_course_lectures,
-   only: %i(index show)
+  before_action :get_course,
+                :correct_learning_user,
+                :get_course_lectures,
+                only: %i(index show)
 
   def index; end
 
   def show
-    if params[:method] == "next"
+    if params[:method].eql? "next"
       next_lecture
-    elsif params[:method] == "previous"
+    elsif params[:method].eql? "previous"
       previous_lecture
     else
       @course_lecture = @course.course_lecture.find_by number: params[:number]
-      return unless current_user && user_lecture(current_user, @course_lecture).nil?
+      return unless not_learned? @course_lecture
 
       create_user_lecture
       redirect_to course_lectures_path unless @course_lecture
@@ -64,12 +66,12 @@ class CourseLecturesController < ApplicationController
   end
 
   def create_user_lecture
-    user_lecture_new = UserLecture.new
-    user_lecture_new.course_lecture_id = @course_lecture.id
-    user_lecture_new.user_id = current_user.id
-    user_lecture_new.status = UserLecture.statuses[:learned]
+    user_lecture = UserLecture.new
+    user_lecture.course_lecture_id = @course_lecture.id
+    user_lecture.user_id = current_user.id
+    user_lecture.status = UserLecture.statuses[:learned]
 
-    if user_lecture_new.save()
+    if user_lecture.save
       flash[:success] = t "message.user_lecture.leaning_lecture"
     else
       flash[:danger] = t "message.user_lecture.cant_create"
@@ -78,10 +80,14 @@ class CourseLecturesController < ApplicationController
 
   def correct_learning_user
     return if current_user &&
-      (user_course(current_user, @course)&.learning? ||
-      user_course(current_user, @course)&.finish?)
+              (user_course(current_user, @course)&.learning? ||
+              user_course(current_user, @course)&.finish?)
 
     flash[:danger] = t "message.user.require_login"
     redirect_to login_path
+  end
+
+  def not_learned? course_lecture
+    current_user && user_lecture(current_user, course_lecture).nil?
   end
 end

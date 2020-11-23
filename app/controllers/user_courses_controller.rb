@@ -12,7 +12,10 @@ class UserCoursesController < ApplicationController
   def new
     @course = Course.find_by id: params[:course_id]
     get_course_lectures
-    @user_course = UserCourse.find_by course_id: params[:course_id], user_id: current_user.id if current_user
+    return unless current_user
+
+    @user_course = UserCourse.find_by course_id: params[:course_id],
+                                      user_id: current_user.id
     return unless @user_course&.learning?
 
     flash[:success] = t "message.course.welcome_back"
@@ -45,7 +48,7 @@ class UserCoursesController < ApplicationController
   end
 
   def get_course_by_user_course
-    return unless params[:status].present?
+    return if params[:status].blank?
 
     @course_id = UserCourse.by_user_id(current_user.id)
                            .by_status(params[:status])
