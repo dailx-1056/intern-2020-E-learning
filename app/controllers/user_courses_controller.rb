@@ -3,11 +3,15 @@ class UserCoursesController < ApplicationController
                 :create_student_course_params,
                 only: %i(create new)
   before_action :get_course_and_course_lectures, only: :new
+  before_action :get_courses_by_category,
+                :get_categories,
+                only: :index
 
   def index
     course_learned_ids = current_user&.courses&.pluck :id
     @courses = Course.active
                      .exclude_ids(course_learned_ids)
+                     .by_ids(@course_id)
                      .page(params[:page])
                      .per Settings.user_course_per
   end
@@ -36,6 +40,14 @@ class UserCoursesController < ApplicationController
 
   private
 
+  def get_courses_by_category
+    return if params[:category_id].blank?
+
+    @course_id = CourseCategory.by_category_id(params[:category_id])
+                               .pluck(:course_id)
+                               .uniq
+  end
+
   def user_course_params
     params.require(:user_course).permit UserCourse::USER_COURSE_PARAMS
   end
@@ -56,5 +68,9 @@ class UserCoursesController < ApplicationController
       flash[:danger] = t "message.course.not_found"
       redirect_to user_courses_path
     end
+  end
+
+  def get_categories
+    @categories = Category.order_by_created_at.limit Settings.limit_newest_cate
   end
 end

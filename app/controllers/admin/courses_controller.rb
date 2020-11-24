@@ -14,6 +14,7 @@ class Admin::CoursesController < Admin::BaseController
 
   def new
     @course = Course.new
+    @course.course_lecture.build
   end
 
   def create
@@ -28,11 +29,12 @@ class Admin::CoursesController < Admin::BaseController
   end
 
   def edit
-    @lectures = @course.course_lecture.order_by_number
+    @course.course_lecture.build if @course.course_lecture.blank?
     @users = @course.users
                     .includes(:user_detail, :user_courses)
                     .by_course_id(@course.id)
-                    .page(params[:page]).per Settings.per
+                    .page(params[:page])
+                    .per Settings.per
   end
 
   def update

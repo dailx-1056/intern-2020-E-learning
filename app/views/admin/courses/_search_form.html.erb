@@ -28,8 +28,8 @@
       <%= f.label :status, t("field.status") %>
       <%= f.select :status,
           options_from_collection_for_select(Course.statuses.keys, :to_s, :to_s, @q.status),
-          include_blank: t("common.choose_role"),
-          class: "form-control" %>
+          {include_blank: t("common.choose_role")},
+          {class: "form-control"} %>
     </div>
   </div>
   <div class="row">

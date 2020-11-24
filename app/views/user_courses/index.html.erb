@@ -6,11 +6,8 @@
     <div class="col-md-3 categories">
       <div class="list-categories">
         <ul class="list-group">
-          <li class="list-group-item"><%= t "category1" %></li>
-          <li class="list-group-item"><%= t "category2" %></li>
-          <li class="list-group-item"><%= t "category3" %></li>
-          <li class="list-group-item"><%= t "category4" %></li>
-          <li class="list-group-item"><%= t "category5" %></li>
+          <%= render collection: @categories,
+            partial: "user_courses/category" %>
         </ul>
       </div>
     </div>

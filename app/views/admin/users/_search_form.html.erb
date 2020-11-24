@@ -34,8 +34,8 @@
       <%= f.label :role, t("field.role") %>
       <%= f.select :role,
           options_from_collection_for_select(User.roles.keys, :to_s, :to_s, @q.role),
-          include_blank: t("common.choose_role"),
-          class: "form-control" %>
+          {include_blank: t("common.choose_role")},
+          {class: "form-control"} %>
     </div>
   </div>
   <div class="row">

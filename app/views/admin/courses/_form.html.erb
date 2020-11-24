@@ -27,6 +27,19 @@
     <%= display_error f.object, :estimate_time, t("field.estimate_time") %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :status, t("field.status") %>
+    <%= f.collection_select :status, Course.statuses.keys, :to_s, :to_s %>
+
+    <%= f.label :category_ids %>
+    <%= f.select :category_ids,
+      options_for_select(categories.map{|id, name|
+        [id, name]},
+        @course.categories.pluck(:id)),
+      {include_blank: true},
+      {class: "chosen-select", multiple: "true"} %>
+  </div>
+
   <h4><%= t "common.lecture" %></h4>
   <%= f.fields_for :course_lecture do |builder| %>
     <%= render "course_lecture_fields", f: builder %>
@@ -45,6 +58,3 @@
       {class: "btn btn-light btn-right"} %>
   </div>
 <% end %>
-<div>
-  <%= render "tab" %>
-</div>

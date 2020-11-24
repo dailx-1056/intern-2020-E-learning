@@ -1,0 +1,6 @@
+<li class="list-group-item">
+  <%= link_to category.name,
+    user_courses_path(category_id: category.id),
+    remote: true %>
+  <%= image_tag Settings.new_image, class: "new-logo" %>
+</li>
