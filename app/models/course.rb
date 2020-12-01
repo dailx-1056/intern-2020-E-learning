@@ -6,7 +6,6 @@ class Course < ApplicationRecord
     course_lecture_attributes: CourseLecture::COURSE_LECTURE_PARAMS].freeze
   enum status: {unactive: 0, active: 1, on_progress: 2, expired: 3}
 
-  has_many :categories, through: :course_categories, dependent: :destroy
   has_many :user_courses, dependent: :destroy
   has_many :instructor_courses, dependent: :destroy
   has_many :course_lecture, dependent: :destroy, inverse_of: :course
