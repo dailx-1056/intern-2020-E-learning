@@ -1,9 +1,10 @@
 class User < ApplicationRecord
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   USER_PARAMS = [:id,
                  :email,
                  :password,
                  :password_confirmation,
-                 :user_detail,
                  :role_id,
                  user_detail_attributes: UserDetail::USER_DETAIL_PARAMS].freeze
 
@@ -26,10 +27,8 @@ class User < ApplicationRecord
   validates :password, presence: true,
                        length: {minimum: Settings.password.min_length,
                                 maximum: Settings.password.max_length},
-                       allow_nil: true
+                       allow_blank: true
   validates :role, inclusion: {in: roles.keys}
-
-  has_secure_password
 
   before_save :downcase_email
 

@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   def update
     if @user.update user_params
       flash[:success] = t "message.user.update_success"
-      redirect_to users_url
+      redirect_to root_path
     else
       flash.now[:danger] = t "message.user.update_fail"
       render :edit

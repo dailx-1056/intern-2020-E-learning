@@ -43,6 +43,11 @@ en:
     waiting_admin_finish: "Wating for approved to finish this course."
     wait_admin_confirm: "Please wait for admin confirm"
     pending: "Pending ..."
+    waiting: "Currently waiting confirmation for:"
+    leave_blank: "(leave blank if you don't want to change it)"
+    character_minimum: "characters minimum"
+    require_current_password: "(we need your current password to confirm your changes)"
+    unhappy: "Unhappy?"
   user:
     comments: "Comment"
     comments_welcome: "What did student say about their courses"
@@ -127,6 +132,7 @@ en:
     estimate_time: "Estimate time"
     start_birthday_date: "Start birthday date"
     end_birthday_date: "End birthday date"
+    remember_me: "Remember me"
   placeholder:
     location: "Location"
     name: "Name"
@@ -137,3 +143,8 @@ en:
   errors:
     invalid_birthday: "Invalid. Must be 12 years old or more"
     code: "Code"
+  login:
+    resend_instruction: "Didn't receive confirmation instructions?"
+    resend_unlock_instruction: "Didn't receive unlock instructions?"
+    sign_in_with: "Sign in with"
+    resend_unlock_message: "Resend unlock instructions"

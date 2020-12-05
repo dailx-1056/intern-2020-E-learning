@@ -19,4 +19,12 @@ class ApplicationController < ActionController::Base
     flash[:danger] = t "message.user.require_login"
     redirect_to login_url
   end
+
+  def after_sign_in_path_for(resource)
+    if current_user.admin?
+      admin_root_url
+    else
+      stored_location_for(resource) || root_url
+    end
+  end
 end

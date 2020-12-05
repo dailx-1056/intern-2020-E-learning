@@ -7,18 +7,18 @@
     </span>
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
-        <% if logged_in? %>
+        <% if user_signed_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= t("common.account") %> <b class="caret"></b>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to t("common.profile"),
-                edit_admin_user_path(current_user.id),
+                edit_user_registration_path(current_user.id),
                 class: "dropdown-item" %>
               <div class="dropdown-divider"></div>
               <%= link_to t("common.logout"),
-                logout_path,
+                destroy_user_session_path,
                 method: :delete,
                 class: "dropdown-item" %>
             </div>
@@ -26,12 +26,12 @@
         <% else %>
           <li class="nav-item cta">
             <%= link_to t("common.sign_in"),
-              login_path ,
+              new_user_session_path ,
               {class:"nav-link ml-lg-2"} %>
           </li>
           <li class="nav-item cta">
             <%= link_to t("common.sign_up"),
-              signup_path ,
+              new_user_registration_path ,
               {class:"nav-link ml-lg-2"} %>
           </li>
         <% end %>

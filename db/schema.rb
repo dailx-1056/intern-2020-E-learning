@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_150511) do
+ActiveRecord::Schema.define(version: 2020_12_05_151932) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -63,6 +63,18 @@ ActiveRecord::Schema.define(version: 2020_11_14_150511) do
     t.index ["user_id"], name: "index_instructor_courses_on_user_id"
   end
 
+  create_table "models", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_models_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true
+  end
+
   create_table "user_courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "start_time"
     t.date "end_time"
@@ -70,6 +82,7 @@ ActiveRecord::Schema.define(version: 2020_11_14_150511) do
     t.integer "relationship"
     t.bigint "user_id", null: false
     t.bigint "course_id", null: false
+    t.integer "num_lecture", default: 0
     t.index ["course_id"], name: "index_user_courses_on_course_id"
     t.index ["user_id"], name: "index_user_courses_on_user_id"
   end
@@ -87,13 +100,27 @@ ActiveRecord::Schema.define(version: 2020_11_14_150511) do
     t.index ["user_id"], name: "index_user_details_on_user_id"
   end
 
+  create_table "user_lectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "course_lecture_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "status", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_lecture_id"], name: "index_user_lectures_on_course_lecture_id"
+    t.index ["user_id"], name: "index_user_lectures_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "code"
-    t.string "email"
-    t.string "password_digest"
+    t.string "email", default: ""
     t.integer "role", default: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "comments", "users"
@@ -105,4 +132,6 @@ ActiveRecord::Schema.define(version: 2020_11_14_150511) do
   add_foreign_key "user_courses", "courses"
   add_foreign_key "user_courses", "users"
   add_foreign_key "user_details", "users"
+  add_foreign_key "user_lectures", "course_lectures"
+  add_foreign_key "user_lectures", "users"
 end

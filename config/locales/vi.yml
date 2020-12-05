@@ -127,6 +127,7 @@ vi:
     estimate_time: "Thời gian dự kiến"
     start_birthday_date: "Sinh nhật bắt đầu"
     end_birthday_date: "Sinh nhật tới"
+    remember_me: "Ghi nhớ"
   placeholder:
     name: "Tên"
     start_birthday_date: "Ngày sinh nhật từ"

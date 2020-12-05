@@ -18,6 +18,8 @@ gem "bootstrap-kaminari-views"
 gem "cocoon"
 gem "toastr-rails"
 gem "factory_bot_rails"
+gem "devise"
+gem "figaro"
 gem "bootsnap", ">= 1.4.2", require: false
 
 group :development, :test do
