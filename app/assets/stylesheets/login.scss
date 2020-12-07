@@ -1,7 +1,7 @@
 @import 'colors';
 
 html {
-  background-color: $login-light-blue;
+  background-color: $cyan-light;
 }
 
 body {
@@ -10,7 +10,7 @@ body {
 }
 
 a {
-  color: $login-lighter-blue;
+  color: $cyan-lighter;
   display:inline-block;
   text-decoration: none;
   font-weight: 400;
@@ -69,7 +69,7 @@ h2 {
 }
 
 input[type=button], input[type=submit], input[type=reset]  {
-  background-color: $login-light-blue;
+  background-color: $cyan-light;
   border: none;
   color: white;
   padding: 15px 80px;
@@ -217,13 +217,13 @@ input[type=text] {
     bottom: -10px;
     width: 0;
     height: 2px;
-    background-color: $login-light-blue;
+    background-color: $cyan-light;
     content: "";
     transition: width 0.2s;
   }
 
   :hover {
-    color: #0d0d0d;
+    color: $black;
 
     :after{
       width: 100%;

@@ -20,6 +20,9 @@ gem "toastr-rails"
 gem "factory_bot_rails"
 gem "devise"
 gem "figaro"
+gem "omniauth"
+gem "omniauth-facebook"
+gem "omniauth-google-oauth2"
 gem "bootsnap", ">= 1.4.2", require: false
 
 group :development, :test do

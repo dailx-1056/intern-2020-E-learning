@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     redirect_to login_url
   end
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for resource
     if current_user.admin?
       admin_root_url
     else

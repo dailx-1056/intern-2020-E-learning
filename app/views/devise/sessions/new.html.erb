@@ -2,9 +2,12 @@
 
 <div class="wrapper fadeInDown">
   <div id="formContent">
-    <div class="fadeIn first">
-      <%= image_tag "login_icon_2", id: "icon" %>
-    </div>
+
+      <%= link_to user_facebook_omniauth_authorize_path do %>
+        facebook
+      <% end %>
+
+
     <%= form_for resource,
         as: resource_name,
         url: session_path(resource_name) do |f| %>
@@ -33,5 +36,3 @@
     <%= render "devise/shared/links" %>
   </div>
 </div>
-
-<%= stylesheet_link_tag "login", media: "all" %>
