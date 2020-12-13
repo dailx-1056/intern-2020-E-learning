@@ -19,7 +19,7 @@ class Admin::CoursesController < Admin::BaseController
   def create
     @course = Course.new course_params
     if @course.save
-      flash[:info] = t "message.course.create_success"
+      flash[:success] = t "message.course.create_success"
       redirect_to admin_courses_path
     else
       flash.now[:danger] = t "message.course.create_fail"

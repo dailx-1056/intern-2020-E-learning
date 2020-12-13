@@ -22,3 +22,7 @@ favicon_logo: "logo2.png"
 trophy_img: "trophy.png"
 status:
   active: 1
+  pending: 1
+limit_newest_cate: 7
+limit_course_suggest: 7
+default_id: 1

@@ -49,7 +49,7 @@ RSpec.describe Course, type: :model do
   describe "Enums" do
     it "status" do
       is_expected.to define_enum_for(:status)
-                 .with_values unactive: 0, active: 1, on_progress: 2, expired: 3
+                 .with_values unactive: 0, active: 1, expired: 3
     end
   end
 
