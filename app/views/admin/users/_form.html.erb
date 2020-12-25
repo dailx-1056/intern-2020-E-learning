@@ -7,20 +7,6 @@
     <%= display_error f.object, :email, t("field.email") %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :password, t("field.password") %>
-    <%= f.password_field :password, class: "form-control" %>
-    <%= display_error f.object, :password, t("field.password") %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password_confirmation, t("field.confirm_password") %>
-    <%= f.password_field :password_confirmation, class: "form-control" %>
-    <%= display_error f.object,
-      :password_confirmation,
-      t("field.password_confirmation") %>
-  </div>
-
   <%= f.fields_for :user_detail do |form| %>
     <%= render "user_detail_form", form: form %>
   <% end %>

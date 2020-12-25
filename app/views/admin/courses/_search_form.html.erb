@@ -26,8 +26,10 @@
     </div>
     <div class="col-3 form-group">
       <%= f.label :status, t("field.status") %>
-      <%= f.select :status,
-          options_from_collection_for_select(Course.statuses.keys, :to_s, :to_s, @q.status),
+      <%= f.select :status_eq,
+          options_from_collection_for_select(Course.statuses,
+                                            :last,
+                                            :first),
           include_blank: t("common.choose_role"),
           class: "form-control" %>
     </div>

@@ -33,7 +33,9 @@
     <div class="col-4 form-group">
       <%= f.label :role, t("field.role") %>
       <%= f.select :role,
-          options_from_collection_for_select(User.roles.keys, :to_s, :to_s, @q.role),
+          options_from_collection_for_select(User.roles,
+                                             :last,
+                                             :first),
           include_blank: t("common.choose_role"),
           class: "form-control" %>
     </div>

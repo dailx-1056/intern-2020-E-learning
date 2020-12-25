@@ -15,7 +15,7 @@ class Admin::UsersController < Admin::BaseController
   def update
     if @user.update user_params
       flash[:success] = t "message.user.update_success"
-      redirect_to users_url
+      redirect_to admin_users_path
     else
       flash.now[:danger] = t "message.user.update_fail"
       render :edit
@@ -33,6 +33,6 @@ class Admin::UsersController < Admin::BaseController
     return if @user
 
     flash.now[:danger] = t "message.user.not_found"
-    redirect_to users_url
+    redirect_to admin_users_path
   end
 end
